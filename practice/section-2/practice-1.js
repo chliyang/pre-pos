@@ -1,5 +1,20 @@
-'use strict';
+"use strict";
 
 function countSameElements(collection) {
-  return '实现练习要求，并改写该行代码。';
+  const keyList = [];
+  const countList = [];
+  collection.forEach((element) => {
+    if (keyList.includes(element)) {
+      countList[keyList.indexOf(element)]++;
+    } else {
+      keyList.push(element);
+      countList.push(1);
+    }
+  });
+
+  const result = [];
+  keyList.map((element, index) => {
+    result.push({ key: element, count: countList[index] });
+  });
+  return result;
 }
